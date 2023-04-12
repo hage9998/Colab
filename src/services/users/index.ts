@@ -5,7 +5,7 @@ interface UserServiceMethods {
   getAllUsers(): Promise<User[]>;
 }
 
-class UserService extends HTTPAdapter implements UserServiceMethods {
+export class UserService extends HTTPAdapter implements UserServiceMethods {
   constructor(baseURL: string) {
     super(baseURL);
   }
