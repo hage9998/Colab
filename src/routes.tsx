@@ -1,6 +1,6 @@
 import React, { FC, Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes as RouteSwitch } from "react-router-dom";
-import UserView from "./views/UserView";
+import UserView from "./views/userView";
 
 const Routes = () => {
   return (

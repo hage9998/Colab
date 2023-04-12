@@ -1,5 +1,5 @@
 import { User, UsersResponse } from "../../types/user";
-import HTTPAdapter from "../adapters/HTTPClientAdpter";
+import HTTPAdapter from "../adapters/httpClientAdpter";
 
 interface UserServiceMethods {
   getAllUsers(): Promise<User[]>;
