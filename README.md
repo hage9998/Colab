@@ -32,6 +32,9 @@ E este foi o resultado:
 
 Se eu fosse mudar algo neste projeto seria aprender mais sobre MUI e ver como eu poderia utilizar melhor a ferramenta. Organizaria as informação no modal de outra maneira, talvez adicionar uma estilização diferente. Talvez não utilizar modal e criar uma outra página para conter os detalhes dos usuários. Adicionaria uma barra de pesquisa para a tabela e colunas ordenadas.
 
+## Requerimentos
+
+- Node
 
 ## Instalação
 
