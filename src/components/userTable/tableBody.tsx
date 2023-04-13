@@ -3,6 +3,8 @@ import {
   TableCell,
   TableBody as TableBodyMui,
 } from "@mui/material";
+import { ButtonBase } from "@mui/material";
+import { Dispatch, SetStateAction } from "react";
 
 export interface TableRow {
   id: string;
@@ -15,12 +17,17 @@ export interface TableRow {
 
 interface TableBodyProps {
   rows: TableRow[];
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const TableBody = ({ rows }: TableBodyProps) => (
+const TableBody = ({ rows, setOpenModal }: TableBodyProps) => (
   <TableBodyMui>
     {rows.map((row) => (
       <TableRowMui
+        onClick={() => setOpenModal(true)}
+        className={"pointer"}
+        hover
+        style={{ cursor: "pointer" }}
         key={row.id}
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
       >

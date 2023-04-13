@@ -15,7 +15,20 @@ export class UserService extends HTTPAdapter implements UserServiceMethods {
       data: { results: users },
     } = await this.get<UsersResponse>("");
 
-    return users;
+    return [
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+      ...users,
+    ];
   }
 }
 

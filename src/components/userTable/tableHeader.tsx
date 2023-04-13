@@ -37,7 +37,7 @@ const TableHeader = () => (
   <TableHead>
     <TableRow>
       {HEAD_CELL.map(({ id, label }) => (
-        <TableCell align="center" key={id}>
+        <TableCell style={{ fontWeight: "bold" }} align="center" key={id}>
           {label}
         </TableCell>
       ))}
