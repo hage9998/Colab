@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import ButtonAppBar from "./components/appBar";
 import Routes from "./routes";
 

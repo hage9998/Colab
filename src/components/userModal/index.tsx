@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import { User } from "../../types/user";
-import { Avatar, Grid, Paper, TextField } from "@mui/material";
+import { Avatar, Grid, TextField } from "@mui/material";
 import { formatDate, genderTranslate } from "../../utils";
 
 const style = {

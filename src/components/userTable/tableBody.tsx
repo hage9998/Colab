@@ -3,7 +3,6 @@ import {
   TableCell,
   TableBody as TableBodyMui,
 } from "@mui/material";
-import { ButtonBase } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 import { genderTranslate } from "../../utils";
 
