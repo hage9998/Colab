@@ -13,22 +13,9 @@ export class UserService extends HTTPAdapter implements UserServiceMethods {
   public async getAllUsers(): Promise<User[]> {
     const {
       data: { results: users },
-    } = await this.get<UsersResponse>("");
+    } = await this.get<UsersResponse>("?results=100");
 
-    return [
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-      ...users,
-    ];
+    return users;
   }
 }
 

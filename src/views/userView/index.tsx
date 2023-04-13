@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useUserViewModel } from "./userViewModel";
 import { User } from "../../types/user";
 import UserTable from "../../components/userTable";
@@ -9,6 +9,7 @@ const UserView = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<string | undefined>();
 
   useEffect(() => {
     void loadUsers().then(() => {
@@ -17,6 +18,11 @@ const UserView = () => {
     });
   }, []);
 
+  const getSelectedUser = useMemo(
+    () => users.find((element) => element.login.uuid === selectedUser),
+    [selectedUser]
+  );
+
   return (
     <>
       <div style={{ margin: "5vh" }}>
@@ -24,9 +30,14 @@ const UserView = () => {
           users={users}
           isLoading={isLoading}
           setOpenModal={setOpenModal}
+          setSelectedUser={setSelectedUser}
         />
       </div>
-      <TransitionsModal openModal={openModal} setOpenModal={setOpenModal} />
+      <TransitionsModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        user={getSelectedUser}
+      />
     </>
   );
 };

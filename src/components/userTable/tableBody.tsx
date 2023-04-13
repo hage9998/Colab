@@ -5,6 +5,7 @@ import {
 } from "@mui/material";
 import { ButtonBase } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
+import { genderTranslate } from "../../utils";
 
 export interface TableRow {
   id: string;
@@ -18,13 +19,17 @@ export interface TableRow {
 interface TableBodyProps {
   rows: TableRow[];
   setOpenModal: Dispatch<SetStateAction<boolean>>;
+  setSelectedUser: Dispatch<SetStateAction<string | undefined>>;
 }
 
-const TableBody = ({ rows, setOpenModal }: TableBodyProps) => (
+const TableBody = ({ rows, setOpenModal, setSelectedUser }: TableBodyProps) => (
   <TableBodyMui>
     {rows.map((row) => (
       <TableRowMui
-        onClick={() => setOpenModal(true)}
+        onClick={() => {
+          setOpenModal(true);
+          setSelectedUser(row.id);
+        }}
         className={"pointer"}
         hover
         style={{ cursor: "pointer" }}
@@ -37,7 +42,7 @@ const TableBody = ({ rows, setOpenModal }: TableBodyProps) => (
         <TableCell align="center">{row.state}</TableCell>
         <TableCell align="center">{row.age}</TableCell>
         <TableCell align="center">{row.cell}</TableCell>
-        <TableCell align="center">{row.gender}</TableCell>
+        <TableCell align="center">{genderTranslate(row.gender)}</TableCell>
       </TableRowMui>
     ))}
   </TableBodyMui>

@@ -13,6 +13,7 @@ interface UserTableProps {
   users: User[];
   isLoading: boolean;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
+  setSelectedUser: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const buildTableRows = (users: User[]): TableRow[] =>
@@ -27,7 +28,12 @@ const buildTableRows = (users: User[]): TableRow[] =>
     };
   });
 
-const UserTable = ({ users, isLoading, setOpenModal }: UserTableProps) => {
+const UserTable = ({
+  users,
+  isLoading,
+  setOpenModal,
+  setSelectedUser,
+}: UserTableProps) => {
   const rows = useMemo(() => buildTableRows(users), [users]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -51,6 +57,13 @@ const UserTable = ({ users, isLoading, setOpenModal }: UserTableProps) => {
     <>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <colgroup>
+            <col style={{ width: "20%" }} />
+            <col style={{ width: "20%" }} />
+            <col style={{ width: "20%" }} />
+            <col style={{ width: "20%" }} />
+            <col style={{ width: "20%" }} />
+          </colgroup>
           <TableHeader />
           <TableBody
             rows={rows.slice(
@@ -58,6 +71,7 @@ const UserTable = ({ users, isLoading, setOpenModal }: UserTableProps) => {
               page * rowsPerPage + rowsPerPage
             )}
             setOpenModal={setOpenModal}
+            setSelectedUser={setSelectedUser}
           />
         </Table>
       </TableContainer>
