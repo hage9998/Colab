@@ -23,7 +23,7 @@ interface TableBodyProps {
 
 const TableBody = ({ rows, setOpenModal, setSelectedUser }: TableBodyProps) => (
   <TableBodyMui>
-    {rows.map((row) => (
+    {rows.map((row, index) => (
       <TableRowMui
         onClick={() => {
           setOpenModal(true);
@@ -34,6 +34,7 @@ const TableBody = ({ rows, setOpenModal, setSelectedUser }: TableBodyProps) => (
         style={{ cursor: "pointer" }}
         key={row.id}
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+        data-testid={`table-row-${index}`}
       >
         <TableCell align="center" component="th" scope="row">
           {row.name}

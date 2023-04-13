@@ -54,7 +54,7 @@ const UserTable = ({
     </div>
   ) : (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} data-testid="user-table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <colgroup>
             <col style={{ width: "20%" }} />

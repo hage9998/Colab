@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useUserViewModel } from "./userViewModel";
 import { User } from "../../types/user";
 import UserTable from "../../components/userTable";
-import TransitionsModal from "../../components/userModal";
+import UserModal from "../../components/userModal";
 
 const UserView = () => {
   const { loadUsers, getUsers } = useUserViewModel();
@@ -33,7 +33,7 @@ const UserView = () => {
           setSelectedUser={setSelectedUser}
         />
       </div>
-      <TransitionsModal
+      <UserModal
         openModal={openModal}
         setOpenModal={setOpenModal}
         user={getSelectedUser}

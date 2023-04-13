@@ -3,9 +3,10 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-export default function ButtonAppBar() {
+export default function UserAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box data-testid="user-app-bar" sx={{ flexGrow: 1 }}>
+      <div></div>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

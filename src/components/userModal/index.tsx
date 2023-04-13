@@ -37,19 +37,15 @@ const spacingStyle = {
   xl: 1,
 };
 
-interface TransitionsModalProps {
+interface UserModalProps {
   openModal: boolean;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
   user?: User;
 }
 
-const TransitionsModal = ({
-  openModal,
-  setOpenModal,
-  user,
-}: TransitionsModalProps) => {
+const UserModal = ({ openModal, setOpenModal, user }: UserModalProps) => {
   const handleClose = () => setOpenModal(false);
-  console.log(user);
+
   return (
     <div>
       <Modal
@@ -64,6 +60,7 @@ const TransitionsModal = ({
             timeout: 500,
           },
         }}
+        data-testid="user-modal"
       >
         <Fade in={openModal}>
           <Box sx={style} display="flex" justifyContent={"center"}>
@@ -231,4 +228,4 @@ const TransitionsModal = ({
   );
 };
 
-export default TransitionsModal;
+export default UserModal;
