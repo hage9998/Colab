@@ -1,44 +1,39 @@
 import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import TableHeader from "./tableHeader";
+import TableBody, { TableRow } from "./tableBody";
+import { User } from "../../types/user";
+import { useMemo } from "react";
 
-const HEAD_CELL = [
-  {
-    id: "name",
-    numeric: false,
-    disablePadding: false,
-    label: "Nome",
-  },
-  {
-    id: "state",
-    numeric: false,
-    disablePadding: false,
-    label: "Estado",
-  },
-  {
-    id: "age",
-    numeric: true,
-    disablePadding: false,
-    label: "Idade",
-  },
-  {
-    id: "cell",
-    numeric: false,
-    disablePadding: false,
-    label: "Celular",
-  },
-  {
-    id: "gender",
-    numeric: false,
-    disablePadding: false,
-    label: "Gênero",
-  },
-];
+interface UserTableProps {
+  users: User[];
+}
 
-const UserTable = () => {
-  return <TableContainer component={Paper}></TableContainer>;
+const buildTableRows = (users: User[]): TableRow[] =>
+  users.map((user) => {
+    return {
+      age: user.dob.age,
+      cell: user.cell,
+      gender: user.gender,
+      name: user.name.first,
+      id: user.login.uuid,
+      state: user.location.state,
+    };
+  });
+
+const UserTable = ({ users }: UserTableProps) => {
+  const rows = useMemo(() => buildTableRows(users), [users]);
+
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHeader />
+        <TableBody rows={rows} />
+      </Table>
+    </TableContainer>
+  );
 };
+
+export default UserTable;

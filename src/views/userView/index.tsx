@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useUserViewModel } from "./userViewModel";
 import { User } from "../../types/user";
+import UserTable from "../../components/userTable";
 
 const UserView = () => {
   const { loadUsers, getUsers } = useUserViewModel();
@@ -12,9 +13,7 @@ const UserView = () => {
 
   return (
     <div>
-      {users.map(({ email }) => (
-        <>{email}</>
-      ))}
+      <UserTable users={users} />
     </div>
   );
 };
